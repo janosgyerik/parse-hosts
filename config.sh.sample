@@ -1,0 +1,7 @@
+# get these values from https://www.parse.com/apps/YOURAPP/edit#keys
+
+# Application ID
+PARSE_APP_ID=__SECRET__
+
+# REST API Key
+PARSE_REST_KEY=__SECRET__
