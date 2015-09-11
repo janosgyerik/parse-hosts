@@ -41,22 +41,24 @@ get_host_by_name() {
 }
 
 create_host() {
-    test $# = 2 || {
-        echo usage: post hostname ipv4
+    test $# = 3 || {
+        echo usage: post hostname ipv4 mac
         return 1
     }
     hostname=$1
     ipv4=$2
-    _post -d '{"name":"'$hostname'","ipv4":"'$ipv4'"}'
+    mac=$3
+    _post -d '{"name":"'$hostname'","ipv4":"'$ipv4'","mac":"'$mac'"}'
 }
 
 update_host() {
-    test $# = 3 || {
-        echo usage: put hostname ipv4 objectId
+    test $# = 4 || {
+        echo usage: put hostname ipv4 mac objectId
         return 1
     }
     hostname=$1
     ipv4=$2
-    objectId=$3
-    _put $objectId -d '{"name":"'$hostname'","ipv4":"'$ipv4'"}'
+    mac=$3
+    objectId=$4
+    _put $objectId -d '{"name":"'$hostname'","ipv4":"'$ipv4'","mac":"'$mac'"}'
 }

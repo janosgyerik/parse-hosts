@@ -7,7 +7,7 @@ cd $(dirname "$0")
 objectId=$(get_host_by_name $(hostname) | ./extract-objectId.py)
 
 if test "$objectId"; then
-    update_host $(hostname) $(./ip.sh) $objectId
+    update_host $(hostname) $(./ip.sh) $(./mac.sh) $objectId
 else
-    create_host $(hostname) $(./ip.sh)
+    create_host $(hostname) $(./ip.sh) $(./mac.sh)
 fi
